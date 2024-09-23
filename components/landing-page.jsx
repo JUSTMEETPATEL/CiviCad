@@ -3,18 +3,17 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Header } from '@/components/header'
-import Home from '@/components/Home'
-import { AboutUs } from '@/components/AboutUs'
-import { Clients } from '@/components/Clients'
-import { Projects } from '@/components/Projects'
-import { Members } from '@/components/Members'
-import { Footer } from '@/components/Footer'
-
+import Header from './components/Header'
+import Home from './components/Home'
+import AboutUs from './components/AboutUs'
+import Clients from './components/Clients'
+import Projects from './components/Projects'
+import Members from './components/Members'
+import Footer from './components/Footer'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function Page() {
+export function LandingPage() {
   const homeRef = useRef(null)
 
   useEffect(() => {
@@ -31,11 +30,11 @@ export default function Page() {
       })
     })
 
-    return () => ctx.revert()
+    return () => ctx.revert();
   }, [])
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden font-montserrat">
+    (<main className="relative min-h-screen overflow-x-hidden font-montserrat">
       <Header />
       <Home ref={homeRef} />
       <AboutUs />
@@ -43,6 +42,6 @@ export default function Page() {
       <Projects />
       <Members />
       <Footer />
-    </main>
-  )
+    </main>)
+  );
 }
